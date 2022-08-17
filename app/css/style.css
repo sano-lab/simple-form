@@ -1,0 +1,92 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    max-width: 600px;
+    margin: auto;
+    margin-top: 2em;
+}
+
+.form-list {
+    margin-bottom: 1em;
+}
+
+input, textarea {
+    width: 100%;
+    height: calc(1.5em + .75rem + 2px);
+    padding: .375rem .75rem;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #495057;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid #ced4da;
+    border-radius: .25rem;
+}
+
+textarea {
+    height: 100%;
+    font-family: inherit;
+}
+
+button {
+    cursor: pointer;
+    color: #fff;
+    background-color: #6c757d;
+    border-color: #6c757d;
+    display: block;
+    font-weight: 400;
+    text-align: center;
+    user-select: none;
+    border: 1px solid transparent;
+    padding: .375rem .75rem;
+    font-size: 1rem;
+    line-height: 1.5;
+    border-radius: .25rem;
+}
+
+.badge {
+    display: inline-block;
+    padding: .25em .4em;
+    font-size: 75%;
+    font-weight: 700;
+    line-height: 1;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: baseline;
+    border-radius: .25rem;
+}
+
+.badge-danger {
+    color: #fff;
+    background-color: #dc3545;
+}
+
+ul {
+    margin: 2em 0;
+    padding: 0;
+}
+
+li {
+    background: #dc3545;
+    color: #fff;
+    list-style-type: none;
+    padding: 8px;
+    border-radius: 8px;
+    margin-bottom: 1em;
+}
+
+p {
+    font-size: large;
+}
+
+.box {
+    margin-top: 2em;
+    display: flex;
+}
+
+.box button:first-child { 
+    margin-right: auto;
+}

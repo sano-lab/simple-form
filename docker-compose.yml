@@ -1,0 +1,24 @@
+version: '3'
+services:
+  web:
+    build: ./docker/nginx
+    ports:
+      - '8080:80'
+    links:
+      - php-fpm
+    volumes:
+      - ./app:/usr/share/nginx/html
+  php-fpm:
+    build: ./docker/php-fpm
+    links:
+      - db
+    volumes:
+      - ./app:/usr/share/nginx/html
+  db:
+    build: ./docker/mysql
+    command: --default-authentication-plugin=mysql_native_password
+    environment:
+       MYSQL_ROOT_PASSWORD: password
+       MYSQL_USER: user
+       MYSQL_PASSWORD: pass
+       MYSQL_DATABASE: db
