@@ -1,5 +1,6 @@
 # Requirement
-* Docker
+* Docker version 20.10.17
+* docker-compose version 1.29.2
 
 # Installation
 
