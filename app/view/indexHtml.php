@@ -48,15 +48,15 @@
       <p><?= $message ?></p>
       <hr>
     <form method="POST" action="<?= h($_SERVER['SCRIPT_NAME']) ?>">
+      <div class="box">
+        <button type="submit" name="edit">修正</button>
+        <button type="submit">送信</button>
+      <div>
       <input type="hidden" name="name" value="<?= $name ?>">
       <input type="hidden" name="email" value="<?= $email ?>">
       <input type="hidden" name="message" value="<?= $message ?>">
       <input type="hidden" name="confirm" value="confirmed">
       <input type="hidden" name="csrf_token" value="<?= $_SESSION['csrf_token'] ?>">
-      <div class="box">
-        <button type="submit" name="edit">修正</button>
-        <button type="submit">送信</button>
-      <div>
 <?php elseif($confirmed) /* 送信完了 */ : ?>
   <?php
   // 多重送信防止
