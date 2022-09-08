@@ -1,7 +1,7 @@
 {
     'use strict';
 
-    document.querySelectorAll('input').forEach(index => {
+    document.querySelectorAll('input, textarea').forEach(index => {
         new RealtimeValidationView(index);
     });
 }

@@ -15,9 +15,10 @@
   <form action="<?= h($_SERVER['SCRIPT_NAME']); ?>" method="post">
     <div class="form-list">
       <label for="id_fullname">お名前 <span class="badge badge-danger">必須</span></label>
-      <input type="text" name="name" value="<?= $name ?>" placeholder="お名前" data-required="true">
+      <input type="text" name="name" value="<?= $name ?>" placeholder="お名前" data-required="true" data-maxlength="32">
       <ul class="validation">
           <li data-error="required" style="display: block;">必須項目です</li>
+          <li data-error="maxlength" style="display: none;">32文字以下で入力してください</li>
       </ul>
     </div>
     <div class="form-list">
@@ -26,12 +27,16 @@
       <ul class="validation">
           <li data-error="required" style="display: block;">必須項目です</li>
           <li data-error="minlength" style="display: none;">3文字以上で入力してください</li>
-          <li data-error="maxlength" style="display: none;">256文字以内で入力してください</li>
+          <li data-error="maxlength" style="display: none;">256文字以下で入力してください</li>
       </ul>
     </div>
     <div class="form-list">
       <label for="id_message">お問い合わせ内容 <span class="badge badge-danger">必須</span></label>
-      <textarea name="message" placeholder="お問合せ内容"><?= $message ?></textarea>
+      <textarea name="message" placeholder="お問合せ内容" data-required="true" data-maxlength="128"><?= $message ?></textarea>
+      <ul class="validation">
+          <li data-error="required" style="display: block;">必須項目です</li>
+          <li data-error="maxlength" style="display: none;">128文字以下で入力してください</li>
+      </ul>
     </div>
     <input type="hidden" name="csrf_token" value="<?= $_SESSION['csrf_token'] ?>">
     <button type="submit">送信</button>
