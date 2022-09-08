@@ -9,7 +9,7 @@ body {
 }
 
 .form-list {
-    margin-bottom: 1em;
+    margin-bottom: 1.5em;
 }
 
 input, textarea {
@@ -89,4 +89,13 @@ p {
 
 .box button:first-child { 
     margin-right: auto;
+}
+
+.validation {
+    margin: 0;
+    padding: 0;
+    pointer-events: none;
+    position: absolute;
+    list-style: none;
+    z-index: 9999;
 }
