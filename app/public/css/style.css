@@ -87,7 +87,7 @@ p {
     display: flex;
 }
 
-.box button:first-child { 
+.box button:first-child {
     margin-right: auto;
 }
 

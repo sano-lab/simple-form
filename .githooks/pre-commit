@@ -1,0 +1,3 @@
+#!/bin/bash
+docker build -t workflows/phpcs `pwd -W`/workflows
+docker run --rm -v `pwd -W`:/app workflows/phpcs phpcs --standard=PSR12 `git diff --cached --name-only` -n

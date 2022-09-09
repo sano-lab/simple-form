@@ -9,7 +9,7 @@
 </head>
 <body>
 
-<?php if (!empty($errors) || $edit) /* 入力値エラー時 */ : ?>
+<?php if (!empty($errors) || $edit) : /* 入力値エラー時 */  ?>
   <ul><?= implode("\n", $errors) ?></ul>
 
   <form action="<?= h($_SERVER['SCRIPT_NAME']); ?>" method="post">
@@ -41,7 +41,7 @@
     <input type="hidden" name="csrf_token" value="<?= $_SESSION['csrf_token'] ?>">
     <button type="submit">送信</button>
   </form>
-<?php elseif(!$confirmed) /* フィールドエラーがなく、編集でもない場合（＝確認画面表示） */ : ?>
+<?php elseif (!$confirmed) : /* フィールドエラーがなく、編集でもない場合（＝確認画面表示） */  ?>
   <p>以下の内容でよければ、「送信」ボタンを押してください。</p>
       <p>お名前</p>
       <p><?= $name ?></p>
@@ -62,11 +62,11 @@
       <input type="hidden" name="message" value="<?= $message ?>">
       <input type="hidden" name="confirm" value="confirmed">
       <input type="hidden" name="csrf_token" value="<?= $_SESSION['csrf_token'] ?>">
-<?php elseif($confirmed) /* 送信完了 */ : ?>
-  <?php
+<?php elseif ($confirmed) : /* 送信完了 */  ?>
+    <?php
   // 多重送信防止
-  unset($_SESSION['csrf_token']);
-  ?>
+    unset($_SESSION['csrf_token']);
+    ?>
   <p>お問い合わせありがとうございます</p>
   <p>送信が完了しました。</p>
 <?php else /* エラー画面 */ : ?>

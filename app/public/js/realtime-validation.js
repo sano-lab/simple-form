@@ -4,7 +4,8 @@ class RealtimeValidationModel {
      * バリデーションモデルコンストラクタ
      * @param {Array} attrs - バリデーションパターン (オプション)
      */
-    constructor(attrs) {
+    constructor(attrs)
+    {
         this.val = '';
         // バリデーションパターン
         this.attrs = {
@@ -23,9 +24,11 @@ class RealtimeValidationModel {
      * 入力チェック (文字比較)
      * @param {string} val - 入力チェックする文字列
      */
-    set(val) {
-        if (this.val === val)
+    set(val)
+    {
+        if (this.val === val) {
             return;
+        }
 
         this.val = val;
         this.validate();
@@ -36,7 +39,8 @@ class RealtimeValidationModel {
      * バリデーション正常時に   'valid'   イベント発行
      * バリデーションエラー時に 'invalid' イベント発行
      */
-    validate() {
+    validate()
+    {
         let val;
         this.errors = []; // バリデーションエラー保存用
 
@@ -56,7 +60,8 @@ class RealtimeValidationModel {
      * @param {string} event - イベント名
      * @param {Function} func - 関数名
      */
-    on(event, func) {
+    on(event, func)
+    {
         this.listeners[event].push(func);
     }
 
@@ -64,7 +69,8 @@ class RealtimeValidationModel {
      * イベント呼び出し
      * @param {string} event - イベント名
      */
-    trigger(event) {
+    trigger(event)
+    {
         this.listeners[event].forEach(func => {
             func();
         });
@@ -74,7 +80,8 @@ class RealtimeValidationModel {
      * 必須チェック
      * @param {string} event - イベント名
      */
-    required() {
+    required()
+    {
         return this.val !== '';
     }
 
@@ -82,7 +89,8 @@ class RealtimeValidationModel {
      * 最大数チェック
      * @param {Number} num - 文字数
      */
-    maxlength(num) {
+    maxlength(num)
+    {
         return num >= this.val.length;
     }
 
@@ -90,7 +98,8 @@ class RealtimeValidationModel {
      * 最小数チェック
      * @param {Number} num - 文字数
      */
-    minlength(num) {
+    minlength(num)
+    {
         return num <= this.val.length;
     }
 
@@ -102,7 +111,8 @@ class RealtimeValidationView {
      * バリデーションビューコンストラクタ
      * @param {Element} el - 要素
      */
-    constructor(el) {
+    constructor(el)
+    {
         this.el = el;
         this.list = this.el.nextElementSibling.children;
         this.initialize();
@@ -112,7 +122,8 @@ class RealtimeValidationView {
     /**
      * 初期化処理
      */
-    initialize() {
+    initialize()
+    {
         const obj = this.el.dataset;
 
         if (this.el.required) {
@@ -130,7 +141,8 @@ class RealtimeValidationView {
     /**
      * イベントハンドル
      */
-    handleEvents() {
+    handleEvents()
+    {
         this.el.addEventListener('keyup', e => {
             this.onKeyup(e);
         });
@@ -144,18 +156,21 @@ class RealtimeValidationView {
         });
     }
 
-    onKeyup(e) {
+    onKeyup(e)
+    {
         this.model.set(e.target.value);
     }
 
-    onValid() {
+    onValid()
+    {
         this.el.classList.remove('error');
         for (let i = 0, len = this.list.length; i < len; i++) {
             this.list[i].style.display = 'none';
         }
     }
 
-    onInvalid() {
+    onInvalid()
+    {
         this.el.classList.add('error');
         for (let i = 0, len = this.list.length; i < len; i++) {
             this.list[i].style.display = 'none';
