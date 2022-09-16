@@ -31,3 +31,23 @@ function sanitize($arr)
     }
     return str_replace('\0', '', $arr);
 }
+
+
+function validate($data, $rule)
+{
+    $arr = [];
+    foreach ($data as $key => $value) {
+        if (array_key_exists($key, $rule)) {
+            if (array_key_exists('require', $rule[$key])) {
+                $arr[$key]['require'] = $data[$key] === '';
+            }
+            if (array_key_exists('max-length', $rule[$key])) {
+                $arr[$key]['max-length'] = $rule[$key]['max-length'] < mb_strlen($data[$key]);
+            }
+            if (array_key_exists('min-length', $rule[$key])) {
+                $arr[$key]['min-length'] = $rule[$key]['min-length'] > mb_strlen($data[$key]);
+            }
+        }
+    }
+    return $arr;
+}
