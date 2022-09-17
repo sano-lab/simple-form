@@ -2,13 +2,13 @@
 
 ini_set('display_errors', 1);
 
+header('Permissions-Policy: interest-cohort=()');
+header('X-FRAME-OPTIONS: DENY');
+
 // DNS Rebinding
 if ($_SERVER['SERVER_NAME'] !== 'localhost') {
     die('DNS Rebinding');
 }
-
-header('Permissions-Policy: interest-cohort=()');
-header('X-FRAME-OPTIONS: DENY');
 
 $cookieParams = session_get_cookie_params();
 $cookieParams['samesite'] = "None";
