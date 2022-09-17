@@ -8,7 +8,7 @@
   <title>お問い合わせフォーム</title>
 </head>
 <body>
-<ul><?= implode(PHP_EOL, $errors) ?></ul>
+<ul><?= implode("\n", $errors) ?></ul>
 <form action="<?= h($_SERVER['SCRIPT_NAME']); ?>" method="post">
   <div class="form-list">
     <label for="id_fullname">お名前 <span class="badge badge-danger">必須</span></label>
