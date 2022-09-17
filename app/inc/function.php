@@ -1,5 +1,9 @@
 <?php
 
+//------------------------------------------------------------
+//  関数定義
+//------------------------------------------------------------
+
 // エスケープ
 function h($s)
 {
@@ -35,8 +39,7 @@ function validate($data, $rule)
     foreach ($data as $key => $value) {
         if (array_key_exists($key, $rule)) {
             if (array_key_exists('require', $rule[$key])) {
-                if($rule[$key]['require'])
-                    $arr[$key]['require'] = $data[$key] === '';
+                $arr[$key]['require'] = $data[$key] === '';
             }
             if (array_key_exists('max-length', $rule[$key])) {
                 $arr[$key]['max-length'] = $rule[$key]['max-length'] < mb_strlen($data[$key]);

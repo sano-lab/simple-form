@@ -43,7 +43,7 @@ $validate_list = [
 $validate_message = [
     'name' => [
         'require' => 'お名前を入力してください',
-        'max-length' => "お名前は{$validate_list['name']['max-length']}文字以下で入力してください"
+        'max-length' => 'お名前は32文字以下で入力してください'
     ],
     'email' => [
         'require' => 'メールアドレスを入力してください',
@@ -64,7 +64,7 @@ foreach ($validate_data as $key => $value) {
     foreach ($validate_data[$key] as $k => $v) {
         if ($validate_data[$key][$k]) {
             if (($k === 'min-length' || $k === 'max-length') && $validate_data[$key]['require']) {
-                continue;
+                break;
             }
             $errors[] = '<li>' . $validate_message[$key][$k] . '</li>';
         }
