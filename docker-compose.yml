@@ -1,4 +1,5 @@
-version: '3.8'
+version: '3.9'
+
 services:
   web:
     build: ./docker/nginx
@@ -15,7 +16,7 @@ services:
     volumes:
       - ./app:/usr/share/nginx/html
   db:
-    build: ./docker/mysql
+    build: ./docker/mariadb
     command: --default-authentication-plugin=mysql_native_password
     environment:
        MYSQL_ROOT_PASSWORD: password
